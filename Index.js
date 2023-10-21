@@ -1,4 +1,4 @@
-const express=require("express")
+ const express=require("express")
 const app=express() 
 const bodyparser=require("body-parser")
 const mongodb=require("./config/mongoose")
@@ -9,7 +9,10 @@ const Answer=require("./models/Answers")
 app.use(bodyparser.urlencoded({extended:true}))
 app.use(express.static("public"))
 app.set("view engine","ejs")
+const routes=require("./RFunc/route1")
  
+app.use("/API",routes)
+
 //const expressLayouts=require("./views/ExpressLayouts")
 //app.use(expressLayouts)
 const port=process.env.PORT||3030
